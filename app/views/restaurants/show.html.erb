@@ -1,0 +1,19 @@
+<div class="container">
+  <h2 class="pb-5"><%= @restaurant.name %></h2>
+  <div class="card bg-grey text-dark">
+    <div class="card-body"><%= @restaurant.address %></div>
+  </div>
+  <% if @restaurant.reviews %>
+      <ul class="list-group">
+        <% @restaurant.reviews.each do |review| %>
+          <li class="list-group-item"><%= review.content %></li>
+        <% end %>
+      </ul>
+    <%else %>
+    <p class="py-5"><i class="far fa-square"></i>No reviews yet</p>
+  <%end %>
+
+  <div>
+  <button type="button" class="btn btn-info mb-5"><%= link_to "Back to list of restaurants", restaurants_path %></button>
+  </div>
+</div>
